@@ -1,0 +1,13 @@
+<%= form_for current_user, url: {action: 'profile_update'} do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <%= form_for(@profileimage) do |f| %>
+        <%= f.attachment_field :image %>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
+  <% end %>

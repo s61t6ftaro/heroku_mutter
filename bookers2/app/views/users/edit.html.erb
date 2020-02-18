@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="body">
+      <div class="container">
+      <% if @user.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <% @user.errors.full_messages.each do |message| %>
+              <ul>
+                <li>error <%= message %></li>
+              </ul>
+            <% end %>
+          </div>
+        <% end %>
+      <h2>User info</h2>
+      <%= form_for(@user) do |f| %>      
+          <div class="field">
+            <label for="username">Name</label>
+            <%= f.text_field :name,class:"name"%>
+          </div>
+          <div class="field">
+            <label for="user_image">Image</label>
+            <%= f.attachment_field :profile_image,class: "user_image" %>
+          </div>
+          <div class="field">
+            <label for="user_introduction">introduction</label>
+            <%= f.text_area :introduction,class:"introduction" %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+
+    <footer>
+        <div class='container'>
+  	        <div class='row'>
+    	        <div class='col-xs-3 col-xs-offset-9'>
+    		        <p>CopyRight Iwasaki.inc</p>
+    	        </div>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>
